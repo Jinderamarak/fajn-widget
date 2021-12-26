@@ -1,0 +1,24 @@
+:root {
+    --scale: 1rem;
+    --back: #020923;
+    --front: #DEDFE2;
+    --accent: #1C233D;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body, div#app {
+    height: 100%;
+    background-color: transparent;
+}
+
+html {
+    font-size: var(--scale);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

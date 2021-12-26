@@ -1,0 +1,5 @@
+.vscode
+.parcel-cache
+build
+dist
+node_modules
