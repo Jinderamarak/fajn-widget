@@ -41,7 +41,15 @@ class AppConfig {
 
 
     public static GetBool(b: Bools): boolean {
-        return this.getInstance().bools[b] ?? DefaultValues[b];
+        const c = this.getInstance().bools[b]
+        if (c) {
+            return c;
+        } else {
+            return DefaultValues[b]
+        }
+
+        //  OBS Browser Source not supporting ??. Why?
+        //  return this.getInstance().bools[b] ?? DefaultValues[b];
     }
 
     public static SetBool(b: Bools, v: boolean): void {
@@ -50,7 +58,14 @@ class AppConfig {
 
 
     public static GetString(s: Strings): string {
-        return this.getInstance().strings[s] ?? DefaultValues[s];
+        const c = this.getInstance().strings[s]
+        if (c) {
+            return c;
+        } else {
+            return DefaultValues[s]
+        }
+
+        //return this.getInstance().strings[s] ?? DefaultValues[s];
     }
 
     public static SetString(s: Strings, v: string): void {
@@ -59,7 +74,14 @@ class AppConfig {
 
 
     public static GetNumber(n: Numbers): number {
-        return this.getInstance().numbers[n] ?? DefaultValues[n];
+        const c = this.getInstance().numbers[n]
+        if (c) {
+            return c;
+        } else {
+            return DefaultValues[n]
+        }
+
+        //return this.getInstance().numbers[n] ?? DefaultValues[n];
     }
 
     public static SetNumber(n: Numbers, v: number): void {
