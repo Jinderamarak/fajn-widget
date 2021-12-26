@@ -1,5 +1,5 @@
 .vscode
 .parcel-cache
-build
+.build
 dist
 node_modules

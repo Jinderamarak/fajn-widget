@@ -1,8 +1,13 @@
 # Highly Advanced Polycarbonate Polls Widget
 
-
+#### Až to zčervená, tak je zle:
 ![build workflow](https://github.com/Jinderamarak/fajn-widget/actions/workflows/build.yml/badge.svg)
 
+
+## Demo
+[Nejnovější verze + Omezené parametry](http://alszak.gay/fajnyc/polls/new/)
+
+[Starší verze + Ostatní parametry](http://alszak.gay/fajnyc/polls/old/)
 
 ## Spuštění v lokálním prostředí
 ### Požadavky
