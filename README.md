@@ -1,5 +1,9 @@
 # Highly Advanced Polycarbonate Polls Widget
 
+
+![build workflow](https://github.com/Jinderamarak/fajn-widget/actions/workflows/build.yml/badge.svg)
+
+
 ## Spuštění v lokálním prostředí
 ### Požadavky
  - Funkční instalace NodeJS spolu s NPM
@@ -16,7 +20,7 @@ Aplikace se spustí na portu 1234
 npm i
 npm run build
 ```
-Vše potřebné je dostupné ve složce `./build`
+Vše potřebné je dostupné ve složce `./.build`
 
 ## Parametry aplikace
  - Pokud není parametr přítomen v URL, použije se jeho defaultní hodnota
