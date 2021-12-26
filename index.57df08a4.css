@@ -1,0 +1,1 @@
+section.loading{display:grid;height:100%;place-content:center}section.loading>svg{height:min(100%,5rem);width:min(100%,5rem)}

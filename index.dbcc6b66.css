@@ -1,0 +1,1 @@
+:root{--scale:1rem;--back:#020923;--front:#dedfe2;--accent:#1c233d}*{margin:0;padding:0}body,div#app,html{background-color:transparent;height:100%}html{font-size:var(--scale)}body{font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif}

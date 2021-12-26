@@ -1,0 +1,1 @@
+section.config{display:flex;flex-flow:row nowrap}section.config input.special{width:100%}section.config div.values{flex-grow:1;flex-shrink:1}section.config div.preview{background-color:coral;height:95vh;width:min(50rem,50vw)}section.config div.preview iframe{height:100%;width:100%}
