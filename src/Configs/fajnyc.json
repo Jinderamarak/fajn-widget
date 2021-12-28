@@ -9,5 +9,6 @@
     "pullInterval": 1000,
     "back": "#020923",
     "front": "#DEDFE2",
-    "accent": "#1C233D"
+    "accent": "#1C233D",
+    "verticalCenter": true
 }

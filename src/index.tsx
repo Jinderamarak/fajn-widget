@@ -32,26 +32,34 @@ if (params.has("widget")) {
     AppConfig.SetString("environment", 'dev');
 }
 
-if (params.has("back")) AppConfig.SetString("back", params.get("back"))
-if (params.has("front")) AppConfig.SetString("front", params.get("front"))
-if (params.has("accent")) AppConfig.SetString("accent", params.get("accent"))
+if (params.has("back"))
+    AppConfig.SetString("back", params.get("back"))
+if (params.has("front"))
+    AppConfig.SetString("front", params.get("front"))
+if (params.has("accent"))
+    AppConfig.SetString("accent", params.get("accent"))
 
-if (params.has("scale")) AppConfig.SetNumber("scale", parseFloat(params.get("scale")))
-if (params.has("pullInterval")) AppConfig.SetNumber("pullInterval", parseInt(params.get("pullInterval")))
-if (params.has("showTotal")) AppConfig.SetBool("showTotal", parseBool(params.get("showTotal")));
-if (params.has("showForEntry")) AppConfig.SetBool("showForEntry", parseBool(params.get("showForEntry")));
-if (params.has("useEntryPercentage")) AppConfig.SetBool("useEntryPercentage", parseBool(params.get("useEntryPercentage")));
-if (params.has("barRelativeTop")) AppConfig.SetBool("barRelativeTop", parseBool(params.get("barRelativeTop")));
-
-
-
-
+if (params.has("scale"))
+    AppConfig.SetNumber("scale", parseFloat(params.get("scale")))
+if (params.has("pullInterval"))
+    AppConfig.SetNumber("pullInterval", parseInt(params.get("pullInterval")))
+if (params.has("showTotal"))
+    AppConfig.SetBool("showTotal", parseBool(params.get("showTotal")));
+if (params.has("showForEntry"))
+    AppConfig.SetBool("showForEntry", parseBool(params.get("showForEntry")));
+if (params.has("useEntryPercentage"))
+    AppConfig.SetBool("useEntryPercentage", parseBool(params.get("useEntryPercentage")));
+if (params.has("barRelativeTop"))
+    AppConfig.SetBool("barRelativeTop", parseBool(params.get("barRelativeTop")));
 
 
 if (params.has("pass")) {
     const v2Params = new URLSearchParams(params.get("pass"));
     AppConfig.SetString("url", `${AppConfig.GetString("url")}?${v2Params.toString()}`);
 }
+
+if (params.has("verticalAlign"))
+    AppConfig.SetBool("verticalCenter", true)
 
 
 
@@ -60,6 +68,8 @@ document.documentElement.style.setProperty("--back", AppConfig.GetString("back")
 document.documentElement.style.setProperty("--front", AppConfig.GetString("front"));
 document.documentElement.style.setProperty("--accent", AppConfig.GetString("accent"));
 
-//const hasEnv = params.has('dev') || params.has('widget') || params.has('dimensions');
+
+if (AppConfig.GetBool("verticalCenter"))
+    document.documentElement.setAttribute("vertical-align", "yep");
 
 ReactDOM.render(AppConfig.GetString("environment") !== "config" ? <App /> : <Config />, document.getElementById("app"));

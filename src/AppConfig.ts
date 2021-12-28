@@ -1,5 +1,5 @@
 
-type Bools = "showTotal" | "showForEntry" | "useEntryPercentage" | "barRelativeTop"
+type Bools = "showTotal" | "showForEntry" | "useEntryPercentage" | "barRelativeTop" | "verticalCenter"
 type Strings = "environment" | "url" | "back" | "front" | "accent"
 type Numbers = "scale" | "pullInterval" | "testRows"
 
@@ -15,7 +15,8 @@ const DefaultValues = {
     testRows: 3,
     back: "#020923",
     front: "#DEDFE2",
-    accent: "#1C233D"
+    accent: "#1C233D",
+    verticalCenter: false
 }
 
 class AppConfig {
