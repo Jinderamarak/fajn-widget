@@ -5,6 +5,7 @@ import Config from './Config';
 import AppConfig from './AppConfig';
 
 import FConfig from './Configs/fajnyc.json';
+import MConfig from './Configs/mock.json';
 
 const parseBool = (v: any) => {
     return v ? true : false;
@@ -18,6 +19,9 @@ if (params.has("preset") && params.getAll("preset").includes("fajnyc")) {
     Object.keys(FConfig).forEach(key => AppConfig.SetAny(key, FConfig[key]))
 }
 
+if (params.has("preset") && params.getAll("preset").includes("mock")) {
+    Object.keys(MConfig).forEach(key => AppConfig.SetAny(key, MConfig[key]))
+}
 
 
 //  v1
