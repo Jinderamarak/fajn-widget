@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import ShowIf from './ShowIf';
+import ShowIf from '../components/ShowIf';
 
 const BASE_URL = `${location.origin}${location.pathname}`;
 

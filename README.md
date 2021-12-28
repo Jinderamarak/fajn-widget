@@ -42,8 +42,13 @@ Vše potřebné je dostupné ve složce `./.build`
 
 ### preset
  - `?preset=fajnyc`
- - Akceptuje pouze hodnotu `fajnyc`
- - Načte preset ze souboru `./src/Configs/fajnyc.json`
+ - Akceptuje pouze hodnoty `fajnyc` nebo `mock`
+ - Načte preset ze souboru `./src/configs/xxxxxxx.json`
+
+### verticalCenter
+ - `?verticalCenter=yep`
+ - Akceptuje cokoliv nebo nic
+ - Pokud něco je, vertikálně vycentruje výsledky
 
 ### pass
  - `?pass=category%3D1%26limit%3D1`

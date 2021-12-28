@@ -1,7 +1,7 @@
 import React from 'react'
-import Loading from './Loading';
-import Results from './Results';
-import useData from './useData';
+import Loading from './components/Loading';
+import Results from './pages/Results';
+import useData from './utils/useData';
 
 
 function App() {

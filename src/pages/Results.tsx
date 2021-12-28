@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
-import AppConfig from "./AppConfig";
-import { GameEntry } from "./useData";
+import React from "react";
+import AppConfig from "../utils/AppConfig";
+import { GameEntry } from "../utils/useData";
+import ShowIf from "../components/ShowIf";
 
 const GetPercentage = (value: number, total: number): number => {
     return Math.max(Math.min(Math.round(value / total * 100), 100), 0) || 0
@@ -41,14 +42,12 @@ function Results({ entries, totalVotes, topVotes }: IResults) {
                     ))
                 }
             </div>
-            {
-                AppConfig.GetBool("showTotal") ? (
-                    <div className="panel summary">
-                        <span className="title">Počet hlasů:</span>
-                        <span className="count">{totalVotes}</span>
-                    </div>
-                ) : undefined
-            }
+            <ShowIf ifp={AppConfig.GetBool("showTotal")}>
+                <div className="panel summary">
+                    <span className="title">Počet hlasů:</span>
+                    <span className="count">{totalVotes}</span>
+                </div>
+            </ShowIf>
         </section>
     )
 }

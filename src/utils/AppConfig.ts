@@ -8,15 +8,17 @@ const DefaultValues = {
     showForEntry: false,
     useEntryPercentage: false,
     barRelativeTop: false,
+    verticalCenter: false,
+
     environment: "config",
     url: "",
-    scale: 1,
-    pullInterval: 1000,
-    testRows: 3,
     back: "#020923",
     front: "#DEDFE2",
     accent: "#1C233D",
-    verticalCenter: false
+
+    scale: 1,
+    pullInterval: 1000,
+    testRows: 3
 }
 
 class AppConfig {
@@ -65,8 +67,6 @@ class AppConfig {
         } else {
             return DefaultValues[s]
         }
-
-        //return this.getInstance().strings[s] ?? DefaultValues[s];
     }
 
     public static SetString(s: Strings, v: string): void {
@@ -81,8 +81,6 @@ class AppConfig {
         } else {
             return DefaultValues[n]
         }
-
-        //return this.getInstance().numbers[n] ?? DefaultValues[n];
     }
 
     public static SetNumber(n: Numbers, v: number): void {
