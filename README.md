@@ -5,9 +5,8 @@
 
 
 ## Demo
-[Nejnovější verze + Omezené parametry](http://alszak.gay/fajnyc/polls/new/)
+[Nejnovější verze](http://alszak.gay/fajnyc/polls/new/)
 
-[Starší verze + Ostatní parametry](http://alszak.gay/fajnyc/polls/old/)
 
 ## Spuštění v lokálním prostředí
 ### Požadavky
