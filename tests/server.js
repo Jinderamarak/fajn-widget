@@ -22,13 +22,17 @@ const PUMP_VOTES = (count) => {
     }
 }
 
+const CLEAR_EXAMPLE = () => {
+    return EXAMPLE.filter(() => Math.random() < 0.8);
+}
+
 setInterval(() => PUMP_VOTES(3), 100)
 
 const requestListener = function (req, res) {
     res.writeHead(200);
     res.writeHead(200, {"Content-Type": "application/json"});
     res.writeHead(200, {"Access-Control-Allow-Origin": "*"});
-    res.write(JSON.stringify(EXAMPLE));
+    res.write(JSON.stringify(CLEAR_EXAMPLE()));
     res.end()
 }
 

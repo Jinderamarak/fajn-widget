@@ -6,7 +6,7 @@
     "useEntryPercentage": true,
     "barRelativeTop": false,
     "scale": 1,
-    "pullInterval": 500,
+    "pullInterval": 1000,
     "back": "#020923",
     "front": "#DEDFE2",
     "accent": "#1C233D",
