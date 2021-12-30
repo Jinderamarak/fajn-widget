@@ -1,14 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Config from './pages/Config';
+import Config from './pages/config/Config';
 import AppConfig from './utils/AppConfig';
 
 import FConfig from './configs/fajnyc.json';
 import MConfig from './configs/mock.json';
 
-const parseBool = (v: any) => {
-    return v ? true : false;
+
+
+const parseBool = (v: any): boolean => {
+    if (typeof (v) !== 'string') {
+        return v ? true : false
+    }
+    if (v.startsWith('n') || v.startsWith('false')) {
+        return false;
+    }
+    return true
 }
 
 const params = new URLSearchParams(location.search);

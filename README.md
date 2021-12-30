@@ -31,7 +31,7 @@ Vše potřebné je dostupné ve složce `./.build`
  - Pokud není parametr přítomen v URL, použije se jeho defaultní hodnota
  - Defaultní hodnoty najdeš úplně nahoře v `./src/AppConfig.ts`
  - Pokud neni nastavený environment, zobrazí config stránka
- - Parametry, u kterých je v příkladu uvedena hodnota `yep` jsou booleanové a testuje se tak pouze jejich přítomnost ale i tak doporučuji dát nějakou hodnotu
+ - Parametry, u kterých je v příkladu uvedena hodnota `yep` jsou booleanové: hodnoty začínající na `n`, `false` nebo prázdné se vyhodnotí na `false`, zbytek na `true` 
 
 ### Environment
  - `?widget=yep` nebo `?dimensions=yep` nebo `?dev=yep`
