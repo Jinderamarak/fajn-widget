@@ -1,14 +1,13 @@
 {
     "environment": "widget",
-    "url": "https://mazarini.fajne.eu/api/mazavestr/list",
     "showTotal": true,
     "showForEntry": true,
     "useEntryPercentage": true,
     "barRelativeTop": false,
     "scale": 1,
     "pullInterval": 1000,
-    "back": "#020923",
-    "front": "#DEDFE2",
-    "accent": "#1C233D",
-    "verticalCenter": true
+    "verticalCenter": true,
+
+    "votesSource": "https://mazarini.fajne.eu/api/mazavestr/list",
+    "totalSource": "https://mazarini.fajne.eu/api/mazavestr/vote/total"
 }

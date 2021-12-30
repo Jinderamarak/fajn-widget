@@ -6,10 +6,10 @@ import useData from './utils/useData';
 
 function App() {
 
-    const { loading, entries, totalVotes, topVotes } = useData();
+    const { loading, ...data } = useData();
 
     if (loading) return <Loading />
-    return <Results entries={entries} totalVotes={totalVotes} topVotes={topVotes} />
+    return <Results {...data} />
 }
 
 export default App;

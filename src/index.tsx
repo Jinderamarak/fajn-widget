@@ -54,19 +54,22 @@ if (params.has("useEntryPercentage"))
 if (params.has("barRelativeTop"))
     AppConfig.SetBool("barRelativeTop", parseBool(params.get("barRelativeTop")));
 if (params.has("verticalCenter"))
-    AppConfig.SetBool("verticalCenter", parseBool(params.get("verticalCenter")))
+    AppConfig.SetBool("verticalCenter", parseBool(params.get("verticalCenter")));
 
 
 //  strings
 
-if (params.has("url"))
-    AppConfig.SetString("url", params.get("url"))
 if (params.has("back"))
     AppConfig.SetString("back", params.get("back"))
 if (params.has("front"))
     AppConfig.SetString("front", params.get("front"))
 if (params.has("accent"))
     AppConfig.SetString("accent", params.get("accent"))
+
+if (params.has("votesSource"))
+    AppConfig.SetString("votesSource", params.get("votesSource"))
+if (params.has("totalSource"))
+    AppConfig.SetString("totalSource", params.get("totalSource"))
 
 
 //  numbers
@@ -79,9 +82,13 @@ if (params.has("testRows"))
     AppConfig.SetNumber("testRows", parseInt(params.get("testRows")))
 
 //  other
-if (params.has("pass")) {
-    const v2Params = new URLSearchParams(params.get("pass"));
-    AppConfig.SetString("url", `${AppConfig.GetString("url")}?${v2Params.toString()}`);
+if (params.has("passToVotes")) {
+    const v2Params = new URLSearchParams(params.get("passToVotes"));
+    AppConfig.SetString("votesSource", `${AppConfig.GetString("votesSource")}?${v2Params.toString()}`);
+}
+if (params.has("passToTotal")) {
+    const v2Params = new URLSearchParams(params.get("passToTotal"));
+    AppConfig.SetString("totalSource", `${AppConfig.GetString("totalSource")}?${v2Params.toString()}`);
 }
 
 

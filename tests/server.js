@@ -9,6 +9,8 @@ const EXAMPLE = [
     { "gameId": 5, "gameName": "Dynamit", "platform": "PC", "submitter": "BaBca_", "category": "GOTY", "votes": 25 }
 ]
 
+const EXAMPLE_TOTAL = () => EXAMPLE.reduce((acc, e) => acc + e.votes, 0) + Math.floor(Math.random() * 1337);
+
 const PUMP_VOTES = (count) => {
     for (let i = 0; i < count; i++) {
         const id = Math.floor(Math.random() * EXAMPLE.length);
@@ -29,11 +31,25 @@ const CLEAR_EXAMPLE = () => {
 setInterval(() => PUMP_VOTES(3), 100)
 
 const requestListener = function (req, res) {
-    res.writeHead(200);
-    res.writeHead(200, {"Content-Type": "application/json"});
-    res.writeHead(200, {"Access-Control-Allow-Origin": "*"});
-    res.write(JSON.stringify(CLEAR_EXAMPLE()));
-    res.end()
+    if (req.url.startsWith("/list")) {
+        res.writeHead(200);
+        res.writeHead(200, {"Content-Type": "application/json"});
+        res.writeHead(200, {"Access-Control-Allow-Origin": "*"});
+        res.write(JSON.stringify(CLEAR_EXAMPLE()));
+        res.end()
+    } else if (req.url.startsWith("/total")) {
+        res.writeHead(200);
+        res.writeHead(200, {"Content-Type": "application/json"});
+        res.writeHead(200, {"Access-Control-Allow-Origin": "*"});
+        res.write(JSON.stringify({
+            category: null,
+            totalVotes: EXAMPLE_TOTAL()
+        }));
+        res.end()
+    } else {
+        res.writeHead(404);
+        res.end();
+    }
 }
 
 const server = Http.createServer(requestListener);

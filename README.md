@@ -30,8 +30,9 @@ Vše potřebné je dostupné ve složce `./.build`
 ## Parametry aplikace
  - Pokud není parametr přítomen v URL, použije se jeho defaultní hodnota
  - Defaultní hodnoty najdeš úplně nahoře v `./src/AppConfig.ts`
- - Pokud neni nastavený environment, zobrazí config stránka
+ - Pokud není nastavený environment, zobrazí config stránka
  - Parametry, u kterých je v příkladu uvedena hodnota `yep` jsou booleanové: hodnoty začínající na `n`, `false` nebo prázdné se vyhodnotí na `false`, zbytek na `true` 
+ - 
 
 ### Environment
  - `?widget=yep` nebo `?dimensions=yep` nebo `?dev=yep`
@@ -45,15 +46,34 @@ Vše potřebné je dostupné ve složce `./.build`
  - Akceptuje pouze hodnoty `fajnyc` nebo `mock`
  - Načte preset ze souboru `./src/configs/xxxxxxx.json`
 
+### votesSource
+ - `?votesSource=https%3A%2F%2Fgoogle.com`
+ - Akceptuje URL encoded url, která poskytuje data v předem domluveném formátu 
+ - Url by neměla obsahovat GET parametry, ty se předávají parametrem `passToVotes`
+ - Zejména ***nesmí*** končit `?`
+
+### passToVotes
+ - `?passToVotes=category%3D1%26limit%3D1`
+ - Obsah ve tvaru `p1=h1&p2=h2` atd. a musí být URL encoded (Tak aby si s tím poradil parser ve třídě URLSearchParams)
+ - Přidá parametry k `votesSource` při aktualizaci dat
+
+### totalSource
+ - `?votesSource=https%3A%2F%2Fgoogle.com`
+ - Akceptuje URL encoded url, která poskytuje data v předem domluveném formátu 
+ - Url by neměla obsahovat GET parametry, ty se předávají parametrem `passToTotal`
+ - Zejména ***nesmí*** končit `?`
+
+### passToTotal
+ - `?passToVotes=category%3D1`
+ - Obsah ve tvaru `p1=h1&p2=h2` atd. a musí být URL encoded (Tak aby si s tím poradil parser ve třídě URLSearchParams)
+ - Přidá parametry k `totalSource` při aktualizaci dat
+
+---
+
 ### verticalCenter
  - `?verticalCenter=yep`
  - Akceptuje cokoliv nebo nic
  - Pokud něco je, vertikálně vycentruje výsledky
-
-### pass
- - `?pass=category%3D1%26limit%3D1`
- - Obsah ve tvaru `p1=h1&p2=h2` atd. a musí být URL encoded (Tak aby si s tím poradil parser ve třídě URLSearchParams)
- - Přidá parametry k `url` při aktualizaci dat
 
 ### back, front, accent
  - `?back=red`
@@ -91,12 +111,6 @@ Vše potřebné je dostupné ve složce `./.build`
  - `?barRelativeTop=yep`
  - Akceptuje cokoliv nebo nic
  - Pokud něco je, tak je výplň řádku relativní k maximálnímu počtu hlasů místo ke všem hlasům
-
-### url
- - `?url=https%3A%2F%2Fgoogle.com`
- - Akceptuje URL encoded url, která poskytuje data v předem domluveném formátu 
- - Url by neměla obsahovat GET parametry, ty se předávají parametrem `pass`
- - Zejména ***nesmí*** končit `?`
 
 ### testRows
  - `?testRows=1`

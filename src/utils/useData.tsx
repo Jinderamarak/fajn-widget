@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import AppConfig from './AppConfig';
 
-const EXAMPLE: GameEntry[] = [
+const EXAMPLE_TOTAL = () => EXAMPLE_VOTES.reduce((acc, e) => acc + e.votes, 0) + Math.floor(Math.random() * 100);
+
+const EXAMPLE_VOTES: GameEntry[] = [
     { "sortIndex": 0, "gameId": 1, "gameName": "Minecraft", "platform": "PC", "submitter": "fajnyCreeper", "category": "GOTY", "votes": 10 },
     { "sortIndex": 0, "gameId": 2, "gameName": "PUBG", "platform": "Playstation", "submitter": "fillipp_", "category": "GOTY", "votes": 8 },
     { "sortIndex": 0, "gameId": 3, "gameName": "Csko", "platform": "Xbox", "submitter": "KoriTRB", "category": "GOTY", "votes": 16 },
@@ -11,14 +13,14 @@ const EXAMPLE: GameEntry[] = [
 
 const PUMP_VOTES = (count: number) => {
     for (let i = 0; i < count; i++) {
-        const id = Math.floor(Math.random() * EXAMPLE.length);
-        EXAMPLE[id].votes = Math.floor(EXAMPLE[id].votes * 1.5)
+        const id = Math.floor(Math.random() * EXAMPLE_VOTES.length);
+        EXAMPLE_VOTES[id].votes = Math.floor(EXAMPLE_VOTES[id].votes * 1.5)
     }
 }
 
-const FetchData = async (): Promise<GameEntry[]> => {
+const FetchVotes = async (): Promise<GameEntry[]> => {
     if (AppConfig.GetString("environment") === 'widget') {
-        const raw = await fetch(AppConfig.GetString("url"));
+        const raw = await fetch(AppConfig.GetString("votesSource"));
         const res = await raw.json();
         return res.map(entry => ({ ...entry, sortIndex: 0 }));
     } else if (AppConfig.GetString("environment") === 'dimensions') {
@@ -37,7 +39,17 @@ const FetchData = async (): Promise<GameEntry[]> => {
         return entries;
     } else {
         PUMP_VOTES(Math.ceil(5 * AppConfig.GetNumber("pullInterval") / 1000))
-        return EXAMPLE;
+        return EXAMPLE_VOTES;
+    }
+}
+
+const FetchTotal = async (): Promise<number> => {
+    if (AppConfig.GetString("environment") === 'widget') {
+        const raw = await fetch(AppConfig.GetString("totalSource"));
+        const res = await raw.json();
+        return res.totalVotes;
+    } else {
+        return EXAMPLE_TOTAL();
     }
 }
 
@@ -62,19 +74,15 @@ function useData() {
 
         const updateData = async () => {
 
-            let data = await FetchData()
+            let [data, total] = await Promise.all([FetchVotes(), FetchTotal()]);
 
             const sortedGameIds = data.map(entry => ({ gameId: entry.gameId, votes: entry.votes }))
             sortedGameIds.sort((a, b) => a.votes > b.votes ? -1 : 1);
 
-            let total = 0;
             let top = 0;
 
             data = data.map(entry => {
-
                 if (entry.votes > top) top = entry.votes
-                total += entry.votes
-
                 return { ...entry, sortIndex: sortedGameIds.findIndex(v => v.gameId === entry.gameId) }
             })
 

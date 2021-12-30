@@ -15,16 +15,25 @@ type TInputs = {
 const PARAMETERS: TInputs = {
     environment: { type: "menu", value: "dev", options: ["dev", "widget", "dimensions"] },
     preset: { type: "menu", value: "none", options: ['none', 'fajnyc', 'mock'] },
+    passToVotes: { type: "string", value: "" },
+    passToTotal: { type: "string", value: "" },
+
+
     showTotal: { type: "bool", value: false },
     showForEntry: { type: "bool", value: false },
     useEntryPercentage: { type: "bool", value: false },
     barRelativeTop: { type: "bool", value: false },
     verticalCenter: { type: "bool", value: false },
-    url: { type: "string", value: "" },
-    pass: { type: "string", value: "" },
-    back: { type: "color", value: "" },
-    front: { type: "color", value: "" },
-    accent: { type: "color", value: "" },
+
+
+    back: { type: "color", value: "#020923" },
+    front: { type: "color", value: "#DEDFE2" },
+    accent: { type: "color", value: "#1C233D" },
+
+    votesSource: { type: "string", value: "" },
+    totalSource: { type: "string", value: "" },
+
+
     scale: { type: "number", value: 1 },
     pullInterval: { type: "number", value: 1000 },
     testRows: { type: "number", value: 3 }
@@ -48,6 +57,10 @@ function Config() {
             }
         })
         setResult(`${BASE_URL}?${p.toString()}`);
+    }
+
+    const copyResult = () => {
+        navigator.clipboard.writeText(result);
     }
 
     const changeParam = (name: string, value: any) => {
@@ -76,13 +89,13 @@ function Config() {
     useEffect(() => {
         const ps = {
             preset: { ...PARAMETERS.preset },
-            pass: { ...PARAMETERS.pass },
-            environment: { ...PARAMETERS.environment }
+            passToVotes: { ...PARAMETERS.passToVotes },
+            passToTotal: { ...PARAMETERS.passToTotal }
         }
 
         ps.preset.value = 'fajnyc';
-        ps.pass.value = '?category=1&limit=5';
-        ps.environment.value = 'dev';
+        ps.passToVotes.value = '?category=1&limit=5';
+        ps.passToTotal.value = '?category=1';
 
         setParams({ ...ps });
     }, []);
@@ -122,6 +135,7 @@ function Config() {
                     </div>
                     <div className='result'>
                         <input readOnly value={result} />
+                        <button onClick={copyResult}>Copy</button>
                         <button onClick={createResult}>Update</button>
                     </div>
                 </div>

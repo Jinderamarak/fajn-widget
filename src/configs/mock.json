@@ -1,14 +1,13 @@
 {
     "environment": "widget",
-    "url": "http://localhost:8080",
     "showTotal": true,
     "showForEntry": true,
     "useEntryPercentage": true,
     "barRelativeTop": false,
     "scale": 1,
     "pullInterval": 1000,
-    "back": "#020923",
-    "front": "#DEDFE2",
-    "accent": "#1C233D",
-    "verticalCenter": true
+    "verticalCenter": true,
+    
+    "votesSource": "http://localhost:8080/list",
+    "totalSource": "http://localhost:8080/total"
 }

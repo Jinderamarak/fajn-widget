@@ -1,6 +1,6 @@
 
 type Bools = "showTotal" | "showForEntry" | "useEntryPercentage" | "barRelativeTop" | "verticalCenter"
-type Strings = "environment" | "url" | "back" | "front" | "accent"
+type Strings = "environment" | "back" | "front" | "accent" | "votesSource" | "totalSource"
 type Numbers = "scale" | "pullInterval" | "testRows"
 
 const DefaultValues = {
@@ -10,12 +10,16 @@ const DefaultValues = {
     barRelativeTop: false,
     verticalCenter: false,
 
+
     environment: "config",
-    url: "",
     back: "#020923",
     front: "#DEDFE2",
     accent: "#1C233D",
 
+    votesSource: "",
+    totalSource: "",
+
+    
     scale: 1,
     pullInterval: 1000,
     testRows: 3
