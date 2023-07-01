@@ -1,13 +1,13 @@
 {
-    "environment": "widget",
-    "showTotal": true,
-    "showForEntry": true,
-    "useEntryPercentage": true,
-    "barRelativeTop": false,
-    "scale": 1,
-    "pullInterval": 1000,
-    "verticalCenter": true,
-    
-    "votesSource": "http://localhost:8080/list",
-    "totalSource": "http://localhost:8080/total"
+  "environment": "widget",
+  "showTotal": true,
+  "showForEntry": true,
+  "useEntryPercentage": true,
+  "barRelativeTop": false,
+  "scale": 1,
+  "pullInterval": 1000,
+  "verticalCenter": true,
+
+  "votesSource": "http://localhost:8080/list",
+  "totalSource": "http://localhost:8080/total"
 }
