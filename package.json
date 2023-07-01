@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
+    "check:lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "check:format": "prettier --check .",
     "mock:server": "node ./tests/server.js"
   },
   "dependencies": {
