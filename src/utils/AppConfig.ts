@@ -13,6 +13,14 @@ type Strings =
   | "totalSource";
 type Numbers = "scale" | "pullInterval" | "testRows";
 
+type ValueTypes = {
+  [K in Bools | Strings | Numbers]: K extends Bools
+    ? boolean
+    : K extends Strings
+    ? string
+    : number;
+};
+
 const DefaultValues = {
   showTotal: false,
   showForEntry: false,
@@ -42,10 +50,13 @@ class AppConfig {
     return this.instance;
   }
 
-  public static SetAny(a: string, v: any): void {
-    if (typeof v === "boolean") this.getInstance().bools[a] = v;
-    if (typeof v === "string") this.getInstance().strings[a] = v;
-    if (typeof v === "number") this.getInstance().numbers[a] = v;
+  public static SetAny<K extends keyof ValueTypes>(
+    a: K,
+    v: ValueTypes[K]
+  ): void {
+    if (typeof v === "boolean") this.getInstance().bools[a as Bools] = v;
+    if (typeof v === "string") this.getInstance().strings[a as Strings] = v;
+    if (typeof v === "number") this.getInstance().numbers[a as Numbers] = v;
   }
 
   public static GetAll(): any {

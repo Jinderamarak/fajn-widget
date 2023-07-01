@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import Config from "./pages/config/Config";
@@ -22,10 +21,14 @@ const params = new URLSearchParams(location.search);
 //  presets
 
 if (params.has("preset") && params.getAll("preset").includes("fajnyc")) {
+  //  eslint-disable-next-line
+  //  @ts-ignore
   Object.keys(FConfig).forEach((key) => AppConfig.SetAny(key, FConfig[key]));
 }
 
 if (params.has("preset") && params.getAll("preset").includes("mock")) {
+  //  eslint-disable-next-line
+  //  @ts-ignore
   Object.keys(MConfig).forEach((key) => AppConfig.SetAny(key, MConfig[key]));
 }
 
@@ -57,34 +60,34 @@ if (params.has("verticalCenter"))
 
 //  strings
 
-if (params.has("back")) AppConfig.SetString("back", params.get("back"));
-if (params.has("front")) AppConfig.SetString("front", params.get("front"));
-if (params.has("accent")) AppConfig.SetString("accent", params.get("accent"));
+if (params.has("back")) AppConfig.SetString("back", params.get("back")!);
+if (params.has("front")) AppConfig.SetString("front", params.get("front")!);
+if (params.has("accent")) AppConfig.SetString("accent", params.get("accent")!);
 
 if (params.has("votesSource"))
-  AppConfig.SetString("votesSource", params.get("votesSource"));
+  AppConfig.SetString("votesSource", params.get("votesSource")!);
 if (params.has("totalSource"))
-  AppConfig.SetString("totalSource", params.get("totalSource"));
+  AppConfig.SetString("totalSource", params.get("totalSource")!);
 
 //  numbers
 
 if (params.has("scale"))
-  AppConfig.SetNumber("scale", parseFloat(params.get("scale")));
+  AppConfig.SetNumber("scale", parseFloat(params.get("scale")!));
 if (params.has("pullInterval"))
-  AppConfig.SetNumber("pullInterval", parseInt(params.get("pullInterval")));
+  AppConfig.SetNumber("pullInterval", parseInt(params.get("pullInterval")!));
 if (params.has("testRows"))
-  AppConfig.SetNumber("testRows", parseInt(params.get("testRows")));
+  AppConfig.SetNumber("testRows", parseInt(params.get("testRows")!));
 
 //  other
 if (params.has("passToVotes")) {
-  const v2Params = new URLSearchParams(params.get("passToVotes"));
+  const v2Params = new URLSearchParams(params.get("passToVotes")!);
   AppConfig.SetString(
     "votesSource",
     `${AppConfig.GetString("votesSource")}?${v2Params.toString()}`
   );
 }
 if (params.has("passToTotal")) {
-  const v2Params = new URLSearchParams(params.get("passToTotal"));
+  const v2Params = new URLSearchParams(params.get("passToTotal")!);
   AppConfig.SetString(
     "totalSource",
     `${AppConfig.GetString("totalSource")}?${v2Params.toString()}`

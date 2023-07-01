@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AppConfig from "./AppConfig";
 
 const EXAMPLE_TOTAL = () =>
@@ -60,11 +60,11 @@ const PUMP_VOTES = (count: number) => {
   }
 };
 
-const FetchVotes = async (): Promise<GameEntry[]> => {
+const fetchVotes = async (): Promise<GameEntry[]> => {
   if (AppConfig.GetString("environment") === "widget") {
     const raw = await fetch(AppConfig.GetString("votesSource"));
     const res = await raw.json();
-    return res.map((entry) => ({ ...entry, sortIndex: 0 }));
+    return res.map((entry: GameEntry) => ({ ...entry, sortIndex: 0 }));
   } else if (AppConfig.GetString("environment") === "dimensions") {
     const entries: GameEntry[] = [];
     for (let i = 0; i < AppConfig.GetNumber("testRows"); i++) {
@@ -85,7 +85,7 @@ const FetchVotes = async (): Promise<GameEntry[]> => {
   }
 };
 
-const FetchTotal = async (): Promise<number> => {
+const fetchTotal = async (): Promise<number> => {
   if (AppConfig.GetString("environment") === "widget") {
     const raw = await fetch(AppConfig.GetString("totalSource"));
     const res = await raw.json();
@@ -113,7 +113,9 @@ function useData() {
 
   useEffect(() => {
     const updateData = async () => {
-      let [data, total] = await Promise.all([FetchVotes(), FetchTotal()]);
+      const fetched = await Promise.all([fetchVotes(), fetchTotal()]);
+      let data = fetched[0];
+      const total = fetched[1];
 
       const sortedGameIds = data.map((entry) => ({
         gameId: entry.gameId,
