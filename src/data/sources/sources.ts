@@ -1,5 +1,5 @@
-import DataSource from "../DataSource";
-import RestClient from "../RestClient";
+import DataSource from "./DataSource";
+import RestClient from "./RestClient";
 import FajnyApiSource from "./FajnyApi/FajnyApiSource";
 import MockApiSource from "./MockApi/MockApiSource";
 import StaticDataSource from "./StaticData/StaticDataSource";

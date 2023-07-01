@@ -1,5 +1,5 @@
-import DataSource from "../../DataSource";
-import RestClient from "../../RestClient";
+import DataSource from "../DataSource";
+import RestClient from "../RestClient";
 import { Voting as ApiVoting } from "./types";
 import { Voting as ClientVoting } from "../../types";
 

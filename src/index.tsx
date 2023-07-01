@@ -2,6 +2,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import Config from "./pages/config/Config";
 import AppConfig from "./utils/AppConfig";
+import { RecoilRoot } from "recoil";
 
 import FConfig from "./configs/fajnyc.json";
 import MConfig from "./configs/mock.json";
@@ -109,10 +110,13 @@ document.documentElement.style.setProperty(
   AppConfig.GetString("accent")
 );
 
-if (AppConfig.GetBool("verticalCenter"))
+if (AppConfig.GetBool("verticalCenter")) {
   document.documentElement.setAttribute("vertical-align", "yep");
+}
 
 ReactDOM.render(
-  AppConfig.GetString("environment") !== "config" ? <App /> : <Config />,
+  <RecoilRoot>
+    {AppConfig.GetString("environment") !== "config" ? <App /> : <Config />}
+  </RecoilRoot>,
   document.getElementById("app")
 );

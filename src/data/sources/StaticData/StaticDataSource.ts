@@ -1,4 +1,4 @@
-import DataSource from "../../DataSource";
+import DataSource from "../DataSource";
 import { Voting } from "../../types";
 
 const GameNames = [
@@ -68,8 +68,7 @@ export default class StaticDataSource implements DataSource {
     this.entryVotes = entryVotes;
   }
 
-  //  @ts-ignore
-  async fetchData(category: string, limit: number): Promise<Voting> {
+  async fetchData(_category: string, limit: number): Promise<Voting> {
     const totalVotes = this.totalVotes + Math.random() * this.totalVotes;
     const entries = GameNames.slice(0, limit).map((name, index) => ({
       id: index,
