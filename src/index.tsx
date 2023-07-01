@@ -21,10 +21,12 @@ const params = new URLSearchParams(location.search);
 //  presets
 
 if (params.has("preset") && params.getAll("preset").includes("fajnyc")) {
+  //  @ts-ignore
   Object.keys(FConfig).forEach((key) => AppConfig.SetAny(key, FConfig[key]));
 }
 
 if (params.has("preset") && params.getAll("preset").includes("mock")) {
+  //  @ts-ignore
   Object.keys(MConfig).forEach((key) => AppConfig.SetAny(key, MConfig[key]));
 }
 
