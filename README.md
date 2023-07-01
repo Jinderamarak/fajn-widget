@@ -2,11 +2,11 @@
 
 #### Až to zčervená, tak je zle:
 
-![build workflow](https://github.com/Jinderamarak/fajn-widget/actions/workflows/build.yml/badge.svg)
+![deploy workflow](https://github.com/Jinderamarak/fajn-widget/actions/workflows/deploy.yml/badge.svg)
 
 ## Demo
 
-[Nejnovější verze](http://alszak.gay/fajnyc/polls/new/)
+[Nejnovější verze](https://jinderamarak.github.io/fajn-widget)
 
 ## Spuštění v lokálním prostředí
 
@@ -17,20 +17,18 @@
 ### Spuštění v lokálním prostředí
 
 ```bash
-npm i
+npm install
 npm run dev
 ```
-
-Aplikace se spustí na portu 1234
 
 ### Build aplikace
 
 ```bash
-npm i
+npm install
 npm run build
 ```
 
-Vše potřebné je dostupné ve složce `./.build`
+Vše potřebné je dostupné ve složce `/build`
 
 ## Parametry aplikace
 
