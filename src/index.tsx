@@ -21,14 +21,10 @@ const params = new URLSearchParams(location.search);
 //  presets
 
 if (params.has("preset") && params.getAll("preset").includes("fajnyc")) {
-  //  eslint-disable-next-line
-  //  @ts-ignore
   Object.keys(FConfig).forEach((key) => AppConfig.SetAny(key, FConfig[key]));
 }
 
 if (params.has("preset") && params.getAll("preset").includes("mock")) {
-  //  eslint-disable-next-line
-  //  @ts-ignore
   Object.keys(MConfig).forEach((key) => AppConfig.SetAny(key, MConfig[key]));
 }
 
