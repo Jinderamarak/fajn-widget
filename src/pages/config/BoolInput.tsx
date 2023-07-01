@@ -1,5 +1,3 @@
-import React from "react";
-
 export type TBoolInput = {
   type: "bool";
   value: boolean;
@@ -7,7 +5,7 @@ export type TBoolInput = {
 
 interface IBoolInput {
   name: string;
-  value: any;
+  value: boolean;
   change: (v: boolean) => void;
   remove: () => void;
 }

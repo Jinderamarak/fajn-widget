@@ -1,5 +1,3 @@
-import React from "react";
-
 export type TStringInput = {
   type: "string";
   value: string;
@@ -7,7 +5,7 @@ export type TStringInput = {
 
 interface IStringInput {
   name: string;
-  value: any;
+  value: string;
   change: (v: string) => void;
   remove: () => void;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import BoolInput, { TBoolInput } from "./BoolInput";
 import StringInput, { TStringInput } from "./StringInput";
 import NumberInput, { TNumberInput } from "./NumberInput";
@@ -117,7 +117,7 @@ function Config() {
               key={name}
               {...params[name]}
               name={name}
-              change={(v: any) => changeParam(name, v)}
+              change={(v: string | number | boolean) => changeParam(name, v)}
               remove={() => removeParam(name)}
             />
           ))}
@@ -150,23 +150,37 @@ function Config() {
   );
 }
 
-type TInputSwitch = TInput & {
+type TInputTypeMapping = {
+  string: string;
+  number: number;
+  bool: boolean;
+  color: string;
+  menu: string;
+};
+
+type TInputSwitch<T extends TInput> = T & {
   name: string;
-  change: (v: any) => void;
+  value: TInputTypeMapping[T["type"]];
+  change: (v: TInputTypeMapping[T["type"]]) => void;
   remove: () => void;
 };
 
-function InputSwitch({ type, ...props }: TInputSwitch) {
+function InputSwitch<T extends TInput>({ type, ...props }: TInputSwitch<T>) {
   if (type === "bool") {
-    return <BoolInput {...props} />;
+    const typed = props as Omit<TInputSwitch<TBoolInput>, "type">;
+    return <BoolInput {...typed} />;
   } else if (type === "number") {
-    return <NumberInput {...props} />;
+    const typed = props as Omit<TInputSwitch<TNumberInput>, "type">;
+    return <NumberInput {...typed} />;
   } else if (type === "string") {
-    return <StringInput {...props} />;
+    const typed = props as Omit<TInputSwitch<TStringInput>, "type">;
+    return <StringInput {...typed} />;
   } else if (type === "color") {
-    return <ColorInput {...props} />;
+    const typed = props as Omit<TInputSwitch<TColorInput>, "type">;
+    return <ColorInput {...typed} />;
   } else if (type === "menu" && "options" in props) {
-    return <MenuInput {...props} />;
+    const typed = props as Omit<TInputSwitch<TMenuInput>, "type">;
+    return <MenuInput {...typed} />;
   }
 }
 

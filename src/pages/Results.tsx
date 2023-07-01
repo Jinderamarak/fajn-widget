@@ -1,4 +1,3 @@
-import React from "react";
 import AppConfig from "../utils/AppConfig";
 import { GameEntry } from "../utils/useData";
 import ShowIf from "../components/ShowIf";

@@ -1,5 +1,3 @@
-import React from "react";
-
 export type TNumberInput = {
   type: "number";
   value: number;
@@ -7,7 +5,7 @@ export type TNumberInput = {
 
 interface INumberInput {
   name: string;
-  value: any;
+  value: string | number;
   change: (v: number) => void;
   remove: () => void;
 }

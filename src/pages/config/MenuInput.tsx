@@ -1,5 +1,3 @@
-import React from "react";
-
 export type TMenuInput = {
   type: "menu";
   value: string;

@@ -1,5 +1,3 @@
-import React from "react";
-
 export type TColorInput = {
   type: "color";
   value: string;
@@ -7,7 +5,7 @@ export type TColorInput = {
 
 interface IColorInput {
   name: string;
-  value: any;
+  value: string;
   change: (v: string) => void;
   remove: () => void;
 }
