@@ -1,15 +1,12 @@
-import React from 'react'
-import Loading from './components/Loading';
-import Results from './pages/Results';
-import useData from './utils/useData';
-
+import Loading from "./components/Loading";
+import Results from "./pages/Results";
+import useData from "./utils/useData";
 
 function App() {
+  const { loading, ...data } = useData();
 
-    const { loading, ...data } = useData();
-
-    if (loading) return <Loading />
-    return <Results {...data} />
+  if (loading) return <Loading />;
+  return <Results {...data} />;
 }
 
 export default App;

@@ -1,11 +1,10 @@
-
 section.loading {
-    height: 100%;
-    display: grid;
-    place-content: center;
+  height: 100%;
+  display: grid;
+  place-content: center;
 }
 
 section.loading > svg {
-    width: min(100%, 5rem);
-    height: min(100%, 5rem);
+  width: min(100%, 5rem);
+  height: min(100%, 5rem);
 }

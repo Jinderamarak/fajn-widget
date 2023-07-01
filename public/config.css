@@ -1,168 +1,160 @@
-
 section.config {
-    display: flex;
-    flex-flow: column nowrap;
-    background-color: #000;
-    color: white;
-    min-height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: #000;
+  color: white;
+  min-height: 100%;
 }
 
 @media only screen and (min-width: 800px) {
   section.config {
     flex-flow: row nowrap;
-}
+  }
 }
 
 section.config div.options {
-    padding: 1rem;
-    flex-grow: 1;
+  padding: 1rem;
+  flex-grow: 1;
 }
 
 section.config div.options h1 {
-    margin: 0;
-    padding: 1rem 0;
+  margin: 0;
+  padding: 1rem 0;
 }
 
 section.config div.params {
-    
 }
 
 section.config div.params p.param {
+  height: 2rem;
 
-    height: 2rem;
+  display: flex;
+  flex-flow: row nowrap;
 
-    display: flex;
-    flex-flow: row nowrap;
+  margin: 0.25rem 0;
+  padding: 0.25rem;
 
-    margin: 0.25rem 0;
-    padding: 0.25rem;
-
-    background-color: #555;
-    border-radius: 0.5rem;
+  background-color: #555;
+  border-radius: 0.5rem;
 }
 
 section.config .base {
+  height: 100%;
 
-    height: 100%;
-    
-    font-weight: bold;
-    border: none;
-    border-radius: 0.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
 
-    margin-right: 0.25rem;
-    padding: 0 1rem;
+  margin-right: 0.25rem;
+  padding: 0 1rem;
 
-    color: white;
-    background-color: black;
-    text-decoration: none;
+  color: white;
+  background-color: black;
+  text-decoration: none;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 section.config div.params p.param .after {
-    margin-right: 0;
-    margin-left: 0.25rem;
+  margin-right: 0;
+  margin-left: 0.25rem;
 }
 
 section.config div.params p.param .base.hoverable:hover {
-    transition: background-color 200ms;
-    cursor: pointer;
+  transition: background-color 200ms;
+  cursor: pointer;
 }
 
 section.config div.params p.param .base.hoverable:hover {
-    background-color: red;
+  background-color: red;
 }
 
 section.config div.params p.param .base:visited {
-    color: white;
+  color: white;
 }
 
 section.config div.params p.param select,
 section.config div.params p.param input {
-    height: 100%;
-    flex-grow: 1;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0 0.5rem;
+  height: 100%;
+  flex-grow: 1;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0 0.5rem;
 }
 
-
 section.config div.controls {
-    background-color: #555;
-    border-radius: 0.5rem;
-    display: flex;
-    flex-flow: column nowrap;
-    padding: 0.25rem;
-    margin-top: 1rem;
+  background-color: #555;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 0.25rem;
+  margin-top: 1rem;
 }
 
 section.config div.controls div {
-    border-radius: 0.5rem;
-    display: flex;
-    flex-flow: row nowrap;
-    height: 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 2rem;
 }
-
 
 section.config div.controls div select,
 section.config div.controls div input {
-    flex-grow: 1;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0 0.5rem;
+  flex-grow: 1;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0 0.5rem;
 }
 
 section.config div.controls div button {
+  height: 100%;
 
-    height: 100%;
-    
-    font-weight: bold;
-    border: none;
-    border-radius: 0.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
 
-    margin-left: 0.25rem;
-    padding: 0 1rem;
+  margin-left: 0.25rem;
+  padding: 0 1rem;
 
-    color: white;
-    background-color: black;
-    text-decoration: none;
+  color: white;
+  background-color: black;
+  text-decoration: none;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    transition: background-color 200ms;
-    cursor: pointer;
+  transition: background-color 200ms;
+  cursor: pointer;
 }
 
 section.config div.controls div button:hover {
-    background-color: red;
+  background-color: red;
 }
 
-
 section.config div.controls div.addition {
-    margin-bottom: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 
 section.config div.frame {
-    width: calc(100% - 1.7rem);
-    height: 30rem;
-    border-color: slateblue;
-    background-color: indianred;
-    border-style: solid;
-    border-width: 0.1rem;
-    margin: 0.25rem;
-    padding: 0.5rem;
+  width: calc(100% - 1.7rem);
+  height: 30rem;
+  border-color: slateblue;
+  background-color: indianred;
+  border-style: solid;
+  border-width: 0.1rem;
+  margin: 0.25rem;
+  padding: 0.5rem;
 }
 
 section.config div.frame iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
