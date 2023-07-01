@@ -7,9 +7,6 @@ on:
 permissions:
   contents: read
 
-env:
-  NODE_ENV: production
-
 jobs:
   build:
     runs-on: ubuntu-latest
