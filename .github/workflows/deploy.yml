@@ -21,7 +21,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  NODE_ENV: production
+  IS_GITHUB_ACTION: yes
 
 jobs:
   # Single deploy job since we're just deploying

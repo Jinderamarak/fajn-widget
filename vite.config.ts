@@ -1,12 +1,12 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-const isProduction = process.env.NODE_ENV === "production";
+const isDeployment = process.env.IS_GITHUB_ACTION === "yes";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: isProduction ? "/fajn-widget/" : "/",
+  base: isDeployment ? "/fajn-widget/" : "/",
   build: {
     outDir: "build",
   },
