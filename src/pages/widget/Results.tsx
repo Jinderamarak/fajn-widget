@@ -1,6 +1,6 @@
-import AppConfig from "../utils/AppConfig";
-import { GameEntry } from "../utils/useData";
-import ShowIf from "../components/ShowIf";
+import AppConfig from "../../utils/AppConfig";
+import { GameEntry } from "../../utils/useData";
+import ShowIf from "../../components/ShowIf";
 
 const GetPercentage = (value: number, total: number): number => {
   return Math.max(Math.min(Math.round((value / total) * 100), 100), 0) || 0;
