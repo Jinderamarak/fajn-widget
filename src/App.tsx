@@ -7,7 +7,7 @@ import { buildDataSource } from "./data/sources/sources";
 import Widget from "./pages/widget/Widget";
 import Config from "./pages/config/Config";
 
-function App() {
+const App = () => {
   const config = useLoadedConfig();
   const [data, setData] = useRecoilState(dataSource);
 
@@ -21,6 +21,6 @@ function App() {
   }
 
   return <Widget />;
-}
+};
 
 export default App;
