@@ -1,0 +1,17 @@
+{
+  "showTotal": true,
+  "showForEntry": true,
+  "useEntryPercentage": true,
+  "barRelativeTop": false,
+  "verticalCenter": true,
+  "environment": "widget",
+  "back": "#000000",
+  "front": "#ffffff",
+  "accent": "#ff0000",
+  "scale": 1,
+  "pullInterval": 1000,
+  "dataSource": "MockApi",
+  "sourceOptions": {
+    "baseUrl": "http://localhost:8080/data"
+  }
+}

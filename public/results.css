@@ -3,7 +3,7 @@ section.results {
   flex-flow: column nowrap;
 }
 
-[vertical-align="yep"] section.results {
+[data-vertical-align] section.results {
   min-height: 100%;
   justify-content: center;
 }

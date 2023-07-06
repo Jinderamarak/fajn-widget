@@ -25,7 +25,7 @@ export type SourceOptionsMapping = {
   };
 };
 
-const buildDataSource = <K extends SourceName>(
+export const buildDataSource = <K extends SourceName>(
   sourceName: K,
   options: SourceOptionsMapping[K]
 ): DataSource => {
@@ -50,4 +50,41 @@ const buildDataSource = <K extends SourceName>(
   throw new Error(`Unknown source: ${sourceName}`);
 };
 
-export default buildDataSource;
+export const parseSourceOptions = <K extends SourceName>(
+  sourceName: K,
+  params: URLSearchParams
+): SourceOptionsMapping[K] => {
+  switch (sourceName) {
+    case "FajnyApi":
+      if (!params.has("baseUrl") || !params.get("baseUrl")) {
+        throw new Error(`Missing baseUrl for FajnyApi source`);
+      }
+
+      return {
+        baseUrl: params.get("baseUrl")!,
+      } as SourceOptionsMapping[K];
+    case "MockApi":
+      if (!params.has("baseUrl") || !params.get("baseUrl")) {
+        throw new Error(`Missing baseUrl for MockApi source`);
+      }
+
+      return {
+        baseUrl: params.get("baseUrl")!,
+      } as SourceOptionsMapping[K];
+    case "StaticData":
+      if (!params.has("totalVotes") || !params.get("totalVotes")) {
+        throw new Error(`Missing totalVotes for StaticData source`);
+      }
+
+      if (!params.has("entryVotes") || !params.get("entryVotes")) {
+        throw new Error(`Missing entryVotes for StaticData source`);
+      }
+
+      return {
+        totalVotes: parseInt(params.get("totalVotes")!),
+        entryVotes: parseInt(params.get("entryVotes")!),
+      } as SourceOptionsMapping[K];
+  }
+
+  throw new Error(`Unknown source: ${sourceName}`);
+};
