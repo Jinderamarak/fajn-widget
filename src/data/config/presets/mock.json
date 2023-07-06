@@ -1,10 +1,10 @@
 {
+  "environment": "widget",
   "showTotal": true,
   "showForEntry": true,
   "useEntryPercentage": true,
   "barRelativeTop": false,
   "verticalCenter": true,
-  "environment": "widget",
   "back": "#000000",
   "front": "#ffffff",
   "accent": "#ff0000",

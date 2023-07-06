@@ -1,11 +1,17 @@
 import { parseSourceOptions } from "../sources/sources";
-import { Configuration } from "../types";
+import { Configuration, Environment } from "../types";
 import presetDefault from "./presets/default.json";
 import presetMock from "./presets/mock.json";
 
 const presets = {
-  default: presetDefault,
-  mock: presetMock,
+  default: {
+    ...presetDefault,
+    environment: presetDefault.environment as Environment,
+  },
+  mock: {
+    ...presetMock,
+    environment: presetDefault.environment as Environment,
+  },
 };
 
 const parseBool = (v: any): boolean => {
@@ -40,6 +46,10 @@ const loadConfig = () => {
 
   if (params.has("dimensions") || params.get("environment") === "dimensions") {
     config.environment = "dimensions";
+  }
+
+  if (params.has("config") || params.get("environment") === "config") {
+    config.environment = "config";
   }
 
   if (params.has("showTotal")) {

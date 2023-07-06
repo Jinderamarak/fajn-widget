@@ -11,13 +11,15 @@ export type Voting = {
   entries: Entry[];
 };
 
+export type Environment = "widget" | "dimensions" | "config";
+
 export type Configuration<K extends SourceName> = {
+  environment: Environment;
   showTotal: boolean;
   showForEntry: boolean;
   useEntryPercentage: boolean;
   barRelativeTop: boolean;
   verticalCenter: boolean;
-  environment: string;
   back: string;
   front: string;
   accent: string;
