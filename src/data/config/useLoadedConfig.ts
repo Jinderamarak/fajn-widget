@@ -5,10 +5,17 @@ import { configuration } from "../atoms";
 import loadConfig from "./loadConfig";
 
 const useLoadedConfig = (): Configuration<any> => {
-  const setConfig = useRecoilState(configuration)[1];
+  const [oldConfig, setConfig] = useRecoilState(configuration);
 
   const config = useMemo(() => {
     const loaded = loadConfig();
+
+    const oldConfigJson = JSON.stringify(oldConfig);
+    const loadedJson = JSON.stringify(loaded);
+    if (oldConfigJson === loadedJson) {
+      return oldConfig;
+    }
+
     setConfig(loaded);
 
     document.documentElement.style.setProperty("--scale", `${loaded.scale}rem`);
@@ -23,7 +30,7 @@ const useLoadedConfig = (): Configuration<any> => {
     }
 
     return loaded;
-  }, []);
+  }, [oldConfig]);
 
   return config;
 };
