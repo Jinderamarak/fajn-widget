@@ -13,7 +13,7 @@ const useVotes = () => {
   const [entries, setEntries] = useState<SortedEntry[]>([]);
 
   useEffect(() => {
-    const timeout = setTimeout(async () => {
+    const timeout = setInterval(async () => {
       const data = await source.fetchData(
         config.category,
         config.limit,
@@ -40,7 +40,7 @@ const useVotes = () => {
       setLoaded(true);
     }, config.pullInterval);
 
-    return () => clearTimeout(timeout);
+    return () => clearInterval(timeout);
   }, [config, source]);
 
   return {
