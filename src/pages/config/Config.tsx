@@ -4,6 +4,7 @@ import StringInput, { TStringInput } from "./StringInput";
 import NumberInput, { TNumberInput } from "./NumberInput";
 import ColorInput, { TColorInput } from "./ColorInput";
 import MenuInput, { TMenuInput } from "./MenuInput";
+import useWindowTitle from "../../utils/useWindowTitle";
 
 const BASE_URL = `${location.origin}${location.pathname}`;
 
@@ -50,6 +51,7 @@ const PARAMETERS: TInputs = {
 };
 
 function Config() {
+  useWindowTitle("Fajn Widget - Config");
   const [selection, setSelection] = useState(Object.keys(PARAMETERS)[0]);
   const [params, setParams] = useState<TInputs>({});
   const [result, setResult] = useState("");
