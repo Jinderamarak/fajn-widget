@@ -1,6 +1,6 @@
 import { FC, useEffect } from "react";
 import { useRecoilState } from "recoil";
-import Loading from "./components/Loading";
+import Loading from "./utils/Loading";
 import Widget from "./pages/widget/Widget";
 import loadConfig from "./data/config/loadConfig";
 import sources from "./data/sources";

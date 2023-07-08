@@ -1,16 +1,12 @@
-export type Entry = {
+export type VoteEntry = {
   id: any;
   name: string;
   votes: number;
 };
 
-export type SortedEntry = Entry & {
-  sortId: number;
-};
-
 export type Voting = {
   totalVotes: number;
-  entries: Entry[];
+  entries: VoteEntry[];
 };
 
 export type Environment = "widget" | "dimensions" | "config";

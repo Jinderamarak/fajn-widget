@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { configurationAtom, dataSourceAtom } from "./atoms";
-import { SortedEntry } from "./types";
+import { VoteEntry } from "./types";
 
 const useVotes = () => {
   const [config] = useRecoilState(configurationAtom);
@@ -10,7 +10,7 @@ const useVotes = () => {
   const [loaded, setLoaded] = useState<boolean>(false);
   const [totalVotes, setTotalVotes] = useState<number>(0);
   const [topVotes, setTopVotes] = useState<number>(0);
-  const [entries, setEntries] = useState<SortedEntry[]>([]);
+  const [entries, setEntries] = useState<VoteEntry[]>([]);
 
   useEffect(() => {
     const timeout = setInterval(async () => {
@@ -21,14 +21,7 @@ const useVotes = () => {
         0
       );
 
-      const sortedIds = data.entries
-        .map((entry) => ({ id: entry.id, votes: entry.votes }))
-        .sort((a, b) => b.votes - a.votes);
-
-      const sortedEntries = data.entries.map((entry) => ({
-        ...entry,
-        sortId: sortedIds.findIndex((e) => e.id === entry.id),
-      }));
+      const sortedEntries = data.entries.sort((a, b) => b.votes - a.votes);
 
       setTotalVotes(data.totalVotes);
       setTopVotes(top);

@@ -1,20 +1,19 @@
 import { FC } from "react";
-import { SortedEntry } from "../../data/types";
+import { VoteEntry } from "../../data/types";
 import { useRecoilState } from "recoil";
 import { configurationAtom } from "../../data/atoms";
 
 type Props = {
-  entry: SortedEntry;
+  entry: VoteEntry;
   topVotes: number;
   totalVotes: number;
-  position: number;
 };
 
 const formatPercent = (percent: number): number => {
   return Math.max(Math.min(Math.round(percent * 100), 100), 0) || 0;
 };
 
-const Entry: FC<Props> = ({ entry, topVotes, totalVotes, position }) => {
+const Entry: FC<Props> = ({ entry, topVotes, totalVotes }) => {
   const [config] = useRecoilState(configurationAtom);
 
   const relativeMax = config.barRelativeTop ? topVotes : totalVotes;
@@ -28,7 +27,6 @@ const Entry: FC<Props> = ({ entry, topVotes, totalVotes, position }) => {
       className="entry"
       style={{
         backgroundPositionX: `${(1 - entry.votes / relativeMax) * 100}%`,
-        transform: `translateY(calc(${entry.sortId - position} * 4.5rem))`,
       }}
     >
       <span className="title">{entry.name}</span>
