@@ -3,7 +3,7 @@ import { Context, games } from "./types";
 
 const fetchData: FetchData<Context> = async (context) => {
   const gameNames = games.slice(0, context.limit);
-  const step = Math.round(context.totalVotes / context.limit);
+  const step = Math.max(1, Math.floor(context.entryVotes / context.limit));
 
   return {
     totalVotes: context.totalVotes,
