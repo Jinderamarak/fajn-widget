@@ -7,13 +7,14 @@ type Props = {
   entry: SortedEntry;
   topVotes: number;
   totalVotes: number;
+  position: number;
 };
 
 const formatPercent = (percent: number): number => {
   return Math.max(Math.min(Math.round(percent * 100), 100), 0) || 0;
 };
 
-const Entry: FC<Props> = ({ entry, topVotes, totalVotes }) => {
+const Entry: FC<Props> = ({ entry, topVotes, totalVotes, position }) => {
   const [config] = useRecoilState(configurationAtom);
 
   const relativeMax = config.barRelativeTop ? topVotes : totalVotes;
@@ -27,7 +28,7 @@ const Entry: FC<Props> = ({ entry, topVotes, totalVotes }) => {
       className="entry"
       style={{
         backgroundPositionX: `${(1 - entry.votes / relativeMax) * 100}%`,
-        transform: `translateY(${entry.sortId * 4.5}rem)`,
+        transform: `translateY(calc(${entry.sortId - position} * 4.5rem))`,
       }}
     >
       <span className="title">{entry.name}</span>

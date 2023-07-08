@@ -12,12 +12,13 @@ const Widget: FC = () => {
   return (
     <section className="results">
       <div className="panel">
-        {entries.map((entry) => (
+        {entries.map((entry, index) => (
           <Entry
             key={entry.id}
             entry={entry}
             topVotes={topVotes}
             totalVotes={totalVotes}
+            position={index}
           />
         ))}
       </div>
