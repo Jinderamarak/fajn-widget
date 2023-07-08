@@ -1,18 +1,6 @@
 import Sources from "../sources";
-import { Configuration, Environment } from "../types";
-import presetDefault from "./presets/default.json";
-import presetMock from "./presets/mock.json";
-
-const presets = {
-  default: {
-    ...presetDefault,
-    environment: presetDefault.environment as Environment,
-  },
-  mock: {
-    ...presetMock,
-    environment: presetMock.environment as Environment,
-  },
-};
+import { Configuration } from "../types";
+import presets from "./presets";
 
 const parseBool = (v: any): boolean => {
   if (typeof v !== "string") {

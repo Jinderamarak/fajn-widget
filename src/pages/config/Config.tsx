@@ -23,7 +23,11 @@ const PARAMETERS: TInputs = {
     value: "dev",
     options: ["dev", "widget", "dimensions"],
   },
-  preset: { type: "menu", value: "none", options: ["none", "fajnyc", "mock"] },
+  preset: {
+    type: "menu",
+    value: "static",
+    options: ["none", "static", "mock"],
+  },
   passToVotes: { type: "string", value: "" },
   passToTotal: { type: "string", value: "" },
 

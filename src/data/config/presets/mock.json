@@ -1,14 +1,5 @@
 {
   "environment": "widget",
-  "showTotal": true,
-  "showForEntry": true,
-  "useEntryPercentage": false,
-  "barRelativeTop": true,
-  "verticalCenter": true,
-  "back": "#020923",
-  "front": "#DEDFE2",
-  "accent": "#1C233D",
-  "scale": 1,
   "pullInterval": 1000,
   "dataSource": "FajnyApi",
   "sourceContext": {
