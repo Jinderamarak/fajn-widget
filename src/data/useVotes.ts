@@ -3,7 +3,7 @@ import { useRecoilState } from "recoil";
 import { configurationAtom, dataSourceAtom } from "./atoms";
 import { Voting } from "./types";
 
-const useVotes = (category: string, limit: number) => {
+const useVotes = () => {
   const [config] = useRecoilState(configurationAtom);
   const [source] = useRecoilState(dataSourceAtom);
 
@@ -12,8 +12,8 @@ const useVotes = (category: string, limit: number) => {
   useEffect(() => {
     const timeout = setTimeout(async () => {
       const data = await source.fetchData(
-        category,
-        limit,
+        config.category,
+        config.limit,
         config.sourceContext
       );
       setVoting({

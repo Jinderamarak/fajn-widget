@@ -21,6 +21,8 @@ export type Configuration = {
   back: string;
   front: string;
   accent: string;
+  category: string;
+  limit: number;
   scale: number;
   pullInterval: number;
   dataSource: string;

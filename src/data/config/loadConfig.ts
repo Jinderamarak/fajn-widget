@@ -84,6 +84,14 @@ const loadConfig = async () => {
     config.accent = params.get("accent")!;
   }
 
+  if (params.has("category")) {
+    config.category = params.get("category")!;
+  }
+
+  if (params.has("limit")) {
+    config.limit = parseInt(params.get("limit")!);
+  }
+
   if (params.has("scale")) {
     config.scale = parseFloat(params.get("scale")!);
   }

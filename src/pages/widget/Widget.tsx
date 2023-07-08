@@ -1,9 +1,9 @@
 import Loading from "../../components/Loading";
+import useVotes from "../../data/useVotes";
 import Results from "./Results";
-import useData from "../../utils/useData";
 
 function Widget() {
-  const { loading, ...data } = useData();
+  const { loading, data } = useVotes();
 
   if (loading) return <Loading />;
   return <Results {...data} />;
