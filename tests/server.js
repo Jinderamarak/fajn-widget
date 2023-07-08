@@ -150,12 +150,12 @@ const createCategory = () => {
   };
 };
 
-const createEntry = (id, name) => {
+const createEntry = (name, id) => {
   return {
     votes: 0,
     entry: {
-      id: id,
-      name: name,
+      id,
+      name,
       category: createCategory(),
       user: createUser(),
       state: 1,
@@ -165,7 +165,7 @@ const createEntry = (id, name) => {
 };
 
 const createInitialData = () => {
-  const entries = gameNames.map((name, index) => createEntry(index, name));
+  const entries = gameNames.map(createEntry);
   return {
     total_votes: 0,
     entries: entries,
