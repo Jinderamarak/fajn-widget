@@ -4,7 +4,7 @@ import parseContext from "./parseContext";
 import { Context } from "./types";
 
 const dataSource: DataSource<Context> = {
-  name: "FajnyApi",
+  name: "StaticData",
   fetchData,
   parseContext,
 };
