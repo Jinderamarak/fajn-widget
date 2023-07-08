@@ -10,7 +10,7 @@ const presets = {
   },
   mock: {
     ...presetMock,
-    environment: presetDefault.environment as Environment,
+    environment: presetMock.environment as Environment,
   },
 };
 
