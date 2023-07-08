@@ -1,0 +1,19 @@
+{
+  "environment": "config",
+  "showTotal": true,
+  "showForEntry": true,
+  "useEntryPercentage": true,
+  "barRelativeTop": true,
+  "verticalCenter": true,
+  "back": "#020923",
+  "front": "#DEDFE2",
+  "accent": "#1C233D",
+  "scale": 1,
+  "pullInterval": 1000,
+  "dataSource": "StaticData",
+  "sourceContext": {
+    "totalVotes": 1234,
+    "entryVotes": 543,
+    "limit": 5
+  }
+}

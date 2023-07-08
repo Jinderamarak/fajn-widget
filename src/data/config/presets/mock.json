@@ -1,0 +1,10 @@
+{
+  "environment": "widget",
+  "pullInterval": 1000,
+  "dataSource": "FajnyApi",
+  "sourceContext": {
+    "apiUrl": "http://localhost:8080",
+    "category": "current",
+    "limit": 5
+  }
+}

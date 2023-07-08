@@ -1,0 +1,9 @@
+{
+  "environment": "widget",
+  "dataSource": "StaticData",
+  "sourceContext": {
+    "totalVotes": 5000,
+    "entryVotes": 500,
+    "limit": 5
+  }
+}
