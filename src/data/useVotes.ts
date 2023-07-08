@@ -10,9 +10,15 @@ const useVotes = (category: string, limit: number) => {
   const [voting, setVoting] = useState<Voting>();
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      source.fetchData(category, limit, config.sourceContext).then((voting) => {
-        setVoting(voting);
+    const timeout = setTimeout(async () => {
+      const data = await source.fetchData(
+        category,
+        limit,
+        config.sourceContext
+      );
+      setVoting({
+        totalVotes: data.totalVotes,
+        entries: data.entries.sort((a, b) => b.votes - a.votes),
       });
     }, config.pullInterval);
 
