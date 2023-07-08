@@ -131,18 +131,20 @@ const randomInt = (min, max) => {
 };
 
 const createUser = () => {
-  const name = userNames[randomInt(0, userNames.length - 1)];
+  const id = randomInt(0, userNames.length - 1);
+  const name = userNames[id];
   return {
-    id: randomInt(0, 100000),
+    id,
     snowflake: randomInt(0, 1000000000000000000),
     user_name: name,
   };
 };
 
 const createCategory = () => {
-  const name = categoryNames[randomInt(0, categoryNames.length - 1)];
+  const id = randomInt(0, categoryNames.length - 1);
+  const name = categoryNames[id];
   return {
-    id: randomInt(0, 100000),
+    id,
     name: name,
     channel: randomInt(0, 1000000000000000000),
   };
@@ -182,11 +184,40 @@ const db = createInitialData();
 setInterval(() => addVotes(db, 1), 1);
 
 const requestListener = function (req, res) {
+  const options = {
+    category: null,
+    limit: null,
+  };
+
+  const parts = req.url.substr(1).split("/");
+  if (parts.length > 0) {
+    options.category = parts[0];
+  }
+  if (parts.length > 1) {
+    options.limit = parseInt(parts[1]);
+  }
+
+  const entries = db.entries
+    .map((x) => x)
+    .sort((a, b) => b.votes - a.votes)
+    .filter(
+      (x) =>
+        options.category === null ||
+        options.category === "current" ||
+        x.entry.category.id == options.category
+    )
+    .slice(0, options.limit ?? db.entries.length);
+
   res.writeHead(200, {
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
   });
-  res.write(JSON.stringify(db));
+  res.write(
+    JSON.stringify({
+      total_votes: db.total_votes,
+      entries,
+    })
+  );
   res.end();
 };
 
