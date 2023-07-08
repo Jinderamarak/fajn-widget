@@ -21,7 +21,7 @@ interface IResults {
   topVotes: number;
 }
 
-function Results({ entries, totalVotes, topVotes }: IResults) {
+const Results = ({ entries, totalVotes, topVotes }: IResults) => {
   return (
     <section className="results">
       <div className="panel">
@@ -55,6 +55,6 @@ function Results({ entries, totalVotes, topVotes }: IResults) {
       </ShowIf>
     </section>
   );
-}
+};
 
 export default Results;
