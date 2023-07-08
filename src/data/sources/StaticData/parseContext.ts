@@ -10,9 +10,14 @@ const parseContext: ParseContext<Context> = (params) => {
     throw new Error(`Missing entryVotes for StaticData source`);
   }
 
+  if (!params.has("limit") || !params.get("limit")?.trim()) {
+    throw new Error(`Missing limit for StaticData source`);
+  }
+
   return {
     totalVotes: parseInt(params.get("totalVotes")!),
     entryVotes: parseInt(params.get("entryVotes")!),
+    limit: parseInt(params.get("limit")!),
   };
 };
 

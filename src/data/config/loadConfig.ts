@@ -73,23 +73,15 @@ const loadConfig = async () => {
   }
 
   if (params.has("back")) {
-    config.back = params.get("back")!;
+    config.back = params.get("back")!.trim();
   }
 
   if (params.has("front")) {
-    config.front = params.get("front")!;
+    config.front = params.get("front")!.trim();
   }
 
   if (params.has("accent")) {
-    config.accent = params.get("accent")!;
-  }
-
-  if (params.has("category")) {
-    config.category = params.get("category")!;
-  }
-
-  if (params.has("limit")) {
-    config.limit = parseInt(params.get("limit")!);
+    config.accent = params.get("accent")!.trim();
   }
 
   if (params.has("scale")) {

@@ -1,6 +1,7 @@
 export type Context = {
   totalVotes: number;
   entryVotes: number;
+  limit: number;
 };
 
 export const games = [

@@ -25,19 +25,13 @@ export type Configuration = {
   back: string;
   front: string;
   accent: string;
-  category: string;
-  limit: number;
   scale: number;
   pullInterval: number;
   dataSource: string;
   sourceContext: any;
 };
 
-export type FetchData<T> = (
-  category: string,
-  limit: number,
-  context: T
-) => Promise<Voting>;
+export type FetchData<T> = (context: T) => Promise<Voting>;
 
 export type ParseContext<T> = (params: URLSearchParams) => T;
 

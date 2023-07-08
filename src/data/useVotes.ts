@@ -14,11 +14,7 @@ const useVotes = () => {
 
   useEffect(() => {
     const timeout = setInterval(async () => {
-      const data = await source.fetchData(
-        config.category,
-        config.limit,
-        config.sourceContext
-      );
+      const data = await source.fetchData(config.sourceContext);
 
       const top = data.entries.reduce(
         (acc, entry) => Math.max(acc, entry.votes),

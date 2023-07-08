@@ -1,9 +1,9 @@
 import { FetchData } from "../../types";
 import { Context, games } from "./types";
 
-const fetchData: FetchData<Context> = async (_c, limit, context) => {
-  const gameNames = games.slice(0, limit);
-  const step = Math.round(context.totalVotes / limit);
+const fetchData: FetchData<Context> = async (context) => {
+  const gameNames = games.slice(0, context.limit);
+  const step = Math.round(context.totalVotes / context.limit);
 
   return {
     totalVotes: context.totalVotes,

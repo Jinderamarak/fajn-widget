@@ -1,8 +1,10 @@
 import { FetchData } from "../../types";
 import { Context, Voting } from "./types";
 
-const fetchData: FetchData<Context> = async (category, limit, context) => {
-  const response = await fetch(`${context.apiUrl}/${category}/${limit}`);
+const fetchData: FetchData<Context> = async (context) => {
+  const response = await fetch(
+    `${context.apiUrl}/${context.category}/${context.limit}`
+  );
   const data: Voting = await response.json();
 
   return {

@@ -31,4 +31,6 @@ export type Voting = {
 
 export type Context = {
   apiUrl: string;
+  category: string;
+  limit: number;
 };
