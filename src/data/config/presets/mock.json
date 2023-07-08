@@ -11,7 +11,7 @@
   "scale": 1,
   "pullInterval": 1000,
   "dataSource": "MockApi",
-  "sourceOptions": {
+  "sourceContext": {
     "baseUrl": "http://localhost:8080/data"
   }
 }

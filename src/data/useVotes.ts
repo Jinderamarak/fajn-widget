@@ -11,7 +11,7 @@ const useVotes = (category: string, limit: number) => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      source.fetchData(category, limit).then((voting) => {
+      source.fetchData(category, limit, config.sourceContext).then((voting) => {
         setVoting(voting);
       });
     }, config.pullInterval);

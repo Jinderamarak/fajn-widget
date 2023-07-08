@@ -28,3 +28,7 @@ export type Voting = {
   total_votes: number;
   entries: VotedEntry[];
 };
+
+export type Context = {
+  apiUrl: string;
+};

@@ -1,15 +1,14 @@
 import { atom } from "recoil";
-import DummyDataSource from "./sources/Dummy/DummyDataSource";
-import DataSource from "./sources/DataSource";
-import { Configuration, Environment } from "./types";
+import DummyDataSource from "./sources/Dummy";
+import { Configuration, DataSource, Environment } from "./types";
 import defaultConfig from "./config/presets/default.json";
 
-export const dataSource = atom<DataSource>({
+export const dataSource = atom<DataSource<any>>({
   key: "dataSource",
-  default: new DummyDataSource(),
+  default: DummyDataSource,
 });
 
-export const configuration = atom<Configuration<any>>({
+export const configuration = atom<Configuration>({
   key: "configuration",
   default: {
     ...defaultConfig,

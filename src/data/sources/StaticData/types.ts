@@ -1,7 +1,9 @@
-import DataSource from "../DataSource";
-import { Voting } from "../../types";
+export type Context = {
+  totalVotes: number;
+  entryVotes: number;
+};
 
-const GameNames = [
+export const games = [
   "Elden Ring",
   "God of War Ragnarök",
   "Halo Infinite",
@@ -58,27 +60,3 @@ const GameNames = [
   "Everwild",
   "Avowed",
 ];
-
-export default class StaticDataSource implements DataSource {
-  private readonly totalVotes: number;
-  private readonly entryVotes: number;
-
-  constructor(totalVotes: number, entryVotes: number) {
-    this.totalVotes = totalVotes;
-    this.entryVotes = entryVotes;
-  }
-
-  async fetchData(_category: string, limit: number): Promise<Voting> {
-    const totalVotes = this.totalVotes + Math.random() * this.totalVotes;
-    const entries = GameNames.slice(0, limit).map((name, index) => ({
-      id: index,
-      name,
-      votes: this.entryVotes + Math.random() * this.entryVotes,
-    }));
-
-    return {
-      totalVotes,
-      entries,
-    };
-  }
-}

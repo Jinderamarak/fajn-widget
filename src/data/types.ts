@@ -1,5 +1,3 @@
-import { SourceName, SourceOptionsMapping } from "./sources/sources";
-
 export type Entry = {
   id: number;
   name: string;
@@ -13,7 +11,7 @@ export type Voting = {
 
 export type Environment = "widget" | "dimensions" | "config";
 
-export type Configuration<K extends SourceName> = {
+export type Configuration = {
   environment: Environment;
   showTotal: boolean;
   showForEntry: boolean;
@@ -25,6 +23,20 @@ export type Configuration<K extends SourceName> = {
   accent: string;
   scale: number;
   pullInterval: number;
-  dataSource: K;
-  sourceOptions: SourceOptionsMapping[K];
+  dataSource: string;
+  sourceContext: any;
+};
+
+export type FetchData<T> = (
+  category: string,
+  limit: number,
+  context: T
+) => Promise<Voting>;
+
+export type ParseContext<T> = (params: URLSearchParams) => T;
+
+export type DataSource<T> = {
+  name: string;
+  fetchData: FetchData<T>;
+  parseContext: ParseContext<T>;
 };

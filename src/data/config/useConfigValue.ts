@@ -2,11 +2,9 @@ import { useRecoilState } from "recoil";
 import { Configuration } from "../types";
 import { configuration } from "../atoms";
 
-type ConfigName = keyof Configuration<any>;
+type ConfigName = keyof Configuration;
 
-const useConfigValue = <K extends ConfigName>(
-  name: K
-): Configuration<any>[K] => {
+const useConfigValue = <K extends ConfigName>(name: K): Configuration[K] => {
   const [config] = useRecoilState(configuration);
   return config[name];
 };

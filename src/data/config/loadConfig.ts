@@ -1,4 +1,4 @@
-import { parseSourceOptions } from "../sources/sources";
+import Sources from "../sources";
 import { Configuration, Environment } from "../types";
 import presetDefault from "./presets/default.json";
 import presetMock from "./presets/mock.json";
@@ -27,7 +27,7 @@ const parseBool = (v: any): boolean => {
 };
 
 const loadConfig = () => {
-  let config: Configuration<any> = presets.default;
+  let config: Configuration = presets.default;
   const params = new URLSearchParams(location.search);
 
   if (params.has("preset")) {
@@ -94,9 +94,22 @@ const loadConfig = () => {
 
   if (params.has("dataSource")) {
     config.dataSource = params.get("dataSource")!;
+    const source = Sources.find((s) => s.name === config.dataSource);
+    if (source) {
+      config.sourceContext = source.parseContext(params);
+    }
   }
 
-  config.sourceOptions = parseSourceOptions(config.dataSource, params);
+  document.documentElement.style.setProperty("--scale", `${config.scale}rem`);
+  document.documentElement.style.setProperty("--back", config.back);
+  document.documentElement.style.setProperty("--front", config.front);
+  document.documentElement.style.setProperty("--accent", config.accent);
+
+  if (config.verticalCenter) {
+    document.documentElement.setAttribute("data-vertical-center", "true");
+  } else {
+    document.documentElement.removeAttribute("data-vertical-center");
+  }
 
   return config;
 };
