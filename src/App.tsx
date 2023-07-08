@@ -1,20 +1,20 @@
+import { FC, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import Loading from "./components/Loading";
 import Widget from "./pages/widget/Widget";
+import loadConfig from "./data/config/loadConfig";
+import sources from "./data/sources";
 import Config from "./pages/config/Config";
 import {
   configurationAtom,
   dataSourceAtom,
   initializedAtom,
 } from "./data/atoms";
-import { useEffect } from "react";
-import loadConfig from "./data/config/loadConfig";
-import sources from "./data/sources";
 
-const App = () => {
+const App: FC = () => {
   const [initialized, setInitialized] = useRecoilState(initializedAtom);
   const [config, setConfig] = useRecoilState(configurationAtom);
-  const [_, setDataSource] = useRecoilState(dataSourceAtom);
+  const [_dataSource, setDataSource] = useRecoilState(dataSourceAtom);
 
   useEffect(() => {
     loadConfig().then((config) => {

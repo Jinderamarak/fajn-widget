@@ -1,7 +1,11 @@
 export type Entry = {
-  id: number;
+  id: any;
   name: string;
   votes: number;
+};
+
+export type SortedEntry = Entry & {
+  sortId: number;
 };
 
 export type Voting = {
