@@ -1,17 +1,19 @@
 {
-  "environment": "widget",
+  "environment": "config",
   "showTotal": true,
   "showForEntry": true,
-  "useEntryPercentage": true,
-  "barRelativeTop": false,
+  "useEntryPercentage": false,
+  "barRelativeTop": true,
   "verticalCenter": true,
-  "back": "#000000",
-  "front": "#ffffff",
-  "accent": "#ff0000",
+  "back": "#020923",
+  "front": "#DEDFE2",
+  "accent": "#1C233D",
   "scale": 1,
   "pullInterval": 1000,
-  "dataSource": "MockApi",
+  "dataSource": "FajnyApi",
   "sourceContext": {
-    "baseUrl": "http://localhost:8080/data"
+    "apiUrl": "http://localhost:8080",
+    "category": "current",
+    "limit": 5
   }
 }
