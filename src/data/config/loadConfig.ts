@@ -26,7 +26,7 @@ const parseBool = (v: any): boolean => {
   return false;
 };
 
-const loadConfig = () => {
+const loadConfig = async () => {
   let config: Configuration = presets.default;
   const params = new URLSearchParams(location.search);
 

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { configuration, dataSource } from "./atoms";
+import { configurationAtom, dataSourceAtom } from "./atoms";
 import { Voting } from "./types";
 
 const useVotes = (category: string, limit: number) => {
-  const [config] = useRecoilState(configuration);
-  const [source] = useRecoilState(dataSource);
+  const [config] = useRecoilState(configurationAtom);
+  const [source] = useRecoilState(dataSourceAtom);
 
   const [voting, setVoting] = useState<Voting>();
 
