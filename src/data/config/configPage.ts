@@ -39,7 +39,7 @@ export type ConfigPageItem =
   | ItemColor
   | ItemText;
 
-export const configPage: ConfigPageItem[] = [
+export const configPageItems: ConfigPageItem[] = [
   {
     type: "select",
     key: "environment",
