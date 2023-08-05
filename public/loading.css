@@ -8,3 +8,17 @@ section.loading > svg {
   width: min(100%, 5rem);
   height: min(100%, 5rem);
 }
+
+section.error {
+  height: 100%;
+  display: grid;
+  place-content: center;
+  background-color: tomato;
+}
+
+section.error > p {
+  font-family: sans-serif;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
