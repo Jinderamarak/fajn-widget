@@ -17,7 +17,6 @@ const Widget: FC = () => {
   const flipKey = entries.reduce((acc, entry) => `${acc}-${entry.id}`, "");
   if (flipKey !== lastKey) {
     lastKey = flipKey;
-    console.log("flipKey", flipKey);
   }
 
   return (
