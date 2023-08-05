@@ -88,7 +88,6 @@ function Config() {
             <button onClick={copyWidgetUrl}>Copy</button>
             <button onClick={buildWidgetUrl}>Update</button>
           </div>
-          C
         </div>
       </div>
       <div className="frame">
