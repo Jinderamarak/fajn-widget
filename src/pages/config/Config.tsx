@@ -77,7 +77,12 @@ function Config() {
         />
         <ConfigSection
           title="Source"
-          possibleItems={sources.map((s) => s.configPage).flat()}
+          possibleItems={sources
+            .map((s) => s.configPage)
+            .flat()
+            .filter(
+              (item, i, a) => a.findIndex((it) => it.key === item.key) === i
+            )}
           items={sourceItems}
           setItems={setSourceItems}
         />
