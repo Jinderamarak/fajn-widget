@@ -5,19 +5,19 @@ const configPage: ConfigPageItem[] = [
     type: "text",
     key: "apiUrl",
     label: "API URL",
-    default: "",
+    value: "",
   },
   {
     type: "text",
     key: "category",
     label: "Category",
-    default: "",
+    value: "",
   },
   {
     type: "number",
     key: "limit",
     label: "Results Limit",
-    default: 10,
+    value: 10,
   },
 ];
 

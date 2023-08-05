@@ -6,30 +6,30 @@ type ItemCommon = {
   label: string;
 };
 
-type ItemToggle = ItemCommon & {
+export type ItemToggle = ItemCommon & {
   type: "toggle";
-  default: boolean;
+  value: boolean;
 };
 
-type ItemSelect = ItemCommon & {
+export type ItemSelect = ItemCommon & {
   type: "select";
   options: string[];
-  default: string;
+  value: string;
 };
 
-type ItemNumber = ItemCommon & {
+export type ItemNumber = ItemCommon & {
   type: "number";
-  default: number;
+  value: number;
 };
 
-type ItemColor = ItemCommon & {
+export type ItemColor = ItemCommon & {
   type: "color";
-  default: string;
+  value: string;
 };
 
-type ItemText = ItemCommon & {
+export type ItemText = ItemCommon & {
   type: "text";
-  default: string;
+  value: string;
 };
 
 export type ConfigPageItem =
@@ -45,73 +45,73 @@ export const configPage: ConfigPageItem[] = [
     key: "environment",
     label: "Environment",
     options: ["widget", "dimensions", "config"],
-    default: "widget",
+    value: "widget",
   },
   {
     type: "toggle",
     key: "showTotal",
     label: "Show Total",
-    default: presets.default.showTotal,
+    value: presets.default.showTotal,
   },
   {
     type: "toggle",
     key: "showForEntry",
     label: "Show For Entry",
-    default: presets.default.showForEntry,
+    value: presets.default.showForEntry,
   },
   {
     type: "toggle",
     key: "useEntryPercentage",
     label: "Use Entry Percentage",
-    default: presets.default.useEntryPercentage,
+    value: presets.default.useEntryPercentage,
   },
   {
     type: "toggle",
     key: "barRelativeTop",
     label: "Bar Relative Top",
-    default: presets.default.barRelativeTop,
+    value: presets.default.barRelativeTop,
   },
   {
     type: "toggle",
     key: "verticalCenter",
     label: "Vertical Center",
-    default: presets.default.verticalCenter,
+    value: presets.default.verticalCenter,
   },
   {
     type: "color",
     key: "back",
     label: "Back",
-    default: presets.default.back,
+    value: presets.default.back,
   },
   {
     type: "color",
     key: "front",
     label: "Front",
-    default: presets.default.front,
+    value: presets.default.front,
   },
   {
     type: "color",
     key: "accent",
     label: "Accent",
-    default: presets.default.accent,
+    value: presets.default.accent,
   },
   {
     type: "number",
     key: "scale",
     label: "Scale",
-    default: presets.default.scale,
+    value: presets.default.scale,
   },
   {
     type: "number",
     key: "pullInterval",
     label: "Pull Interval",
-    default: presets.default.pullInterval,
+    value: presets.default.pullInterval,
   },
   {
     type: "select",
     key: "dataSource",
     label: "Data Source",
     options: sources.map((s) => s.name),
-    default: presets.default.dataSource,
+    value: presets.default.dataSource,
   },
 ];
