@@ -206,7 +206,7 @@ const requestListener = function (req, res) {
         options.category === "current" ||
         x.entry.category.id == options.category
     )
-    .slice(0, options.limit ?? db.entries.length);
+    .slice(0, options.limit || db.entries.length);
 
   res.writeHead(200, {
     "Access-Control-Allow-Origin": "*",

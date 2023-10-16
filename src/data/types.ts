@@ -1,3 +1,5 @@
+import { ConfigPageItem } from "./config/configPage";
+
 export type VoteEntry = {
   id: any;
   name: string;
@@ -33,6 +35,7 @@ export type ParseContext<T> = (params: URLSearchParams) => T;
 
 export type DataSource<T> = {
   name: string;
+  configPage: ConfigPageItem[];
   fetchData: FetchData<T>;
   parseContext: ParseContext<T>;
 };

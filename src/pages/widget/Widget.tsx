@@ -6,8 +6,6 @@ import Summary from "./Summary";
 import { Flipper, Flipped } from "react-flip-toolkit";
 import useWindowTitle from "../../utils/useWindowTitle";
 
-let lastKey = "";
-
 const Widget: FC = () => {
   useWindowTitle("Fajn Widget - Widget");
   const { loading, entries, topVotes, totalVotes } = useVotes();
@@ -15,10 +13,6 @@ const Widget: FC = () => {
   if (loading) return <Loading />;
 
   const flipKey = entries.reduce((acc, entry) => `${acc}-${entry.id}`, "");
-  if (flipKey !== lastKey) {
-    lastKey = flipKey;
-    console.log("flipKey", flipKey);
-  }
 
   return (
     <section className="results">
