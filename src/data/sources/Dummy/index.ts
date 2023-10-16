@@ -6,6 +6,7 @@ const dataSource: DataSource<object> = {
   name: "Dummy",
   fetchData,
   parseContext,
+  configPage: [],
 };
 
 export default dataSource;
