@@ -55,6 +55,7 @@ const ConfigSection: FC<Props> = (props: Props) => {
       <div className="controls">
         <div className="addition">
           <select value={newItem} onChange={(e) => setNewItem(e.target.value)}>
+            <option value="">{"<select something>"}</option>
             {possibleItems.map((item) =>
               items.find((i) => i.key === item.key) ? undefined : (
                 <option key={item.key} value={item.key}>
