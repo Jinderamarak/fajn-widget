@@ -1,107 +1,99 @@
-# Highly Advanced Polycarbonate Polls Widget
-
-#### Až to zčervená, tak je zle:
+# Custom Stream Widget for Polls
 
 ![deploy workflow](https://github.com/Jinderamarak/fajn-widget/actions/workflows/deploy.yml/badge.svg)
 
 ## Demo
 
-[Nejnovější verze](https://jinderamarak.github.io/fajn-widget)
+[Latest Deployed Version](https://jinderamarak.github.io/fajn-widget)
 
-## Spuštění v lokálním prostředí
+[See the widget in action!](https://www.twitch.tv/mazarin1k/clip/DeliciousExpensiveSangSSSsss-LneqrRtKfqXoMZXY)
 
-### Požadavky
+## Local Development
+
+### Requirements
 
 - Funkční instalace NodeJS spolu s NPM
 
-### Spuštění v lokálním prostředí
+### Running
 
 ```bash
 npm install
 npm run dev
 ```
 
-### Build aplikace
+### Building
 
 ```bash
 npm install
 npm run build
 ```
 
-Vše potřebné je dostupné ve složce `/build`
+Build output available in directory `/build`
 
-## Parametry aplikace
+## Wiget Parameters
 
-- Pokud není parametr přítomen v URL, použije se jeho defaultní hodnota
-- Defaultní hodnoty najdeš v `./src/data/config/presets/default.json`
-- Pokud není nastavený environment, zobrazí config stránka
-- Parametry, u kterých je v příkladu uvedena hodnota `yep` jsou booleanové: hodnoty začínající na `n`, `false` nebo prázdné se vyhodnotí na `false`, zbytek na `true`
+- Default values found in `./src/data/config/presets/default.json`
+- If the environment is not set, `config` is used
+- Boolean values accept strings, values beginning with `n`, `false` or are empty are treated as `false`, rest as `true`
 
 ### Environment
 
-- `?environment=widget` nebo `?environment=config`
-- Akceptuje hodnoty `widget`, `config`
-- `widget` - aktualizuje data z data source
-- `dev` - naklikani parametru
+- `?environment=widget` or `?environment=config`
+- `widget` - widget itself loading data from datasource
+- `config` - configuration of the widget
 
 ### preset
 
 - `?preset=default`
-- Akceptuje pouze hodnoty `default` nebo `mock` nebo `static`
-- Načte preset ze souboru `./src/data/config/presets/xxxxxxx.json`
-- Pro pridani noveho presetu je potreba ho importovat v `./src/data/config/presets/index.ts`
+- Loads preset from file `./src/data/config/presets/xxxxxxx.json`
+- Adding new preset requires importing it in `./src/data/config/presets/index.ts`
 
 ---
 
 ### verticalCenter
 
-- `?verticalCenter=yep`
-- Akceptuje cokoliv nebo nic
-- Pokud něco je, vertikálně vycentruje výsledky
+- `?verticalCenter=yes`
+- Results are vertically centered
 
 ### back, front, accent
 
 - `?back=red`
-- Akceptuje hodnoty barev, se kterými si poradí CSS
-- `back` - barva pozadí
-- `front` - barva textu
-- `accent` - barva řádků
+- Accepts any color acceptable to CSS
+- `back` - background color
+- `front` - foreground color (text)
+- `accent` - accent color (lines)
 
 ### scale
 
 - `?scale=1`
-- Akceptuje desetinná čísla
-- Nastavuje velikost UI
+- Accepts JS numbers
+- Sets the scale of the UI
 
 ### pullInterval
 
 - `?pullInterval=1000`
-- Akceptuje celá čísla
-- Pauza mezi aktualizací dat v [ms]
+- Accepts integer numbers
+- Data polling interval in milliseconds
 
 ### showTotal
 
-- `?showTotal=yep`
-- Akceptuje cokoliv nebo nic
-- Pokud něco je, tak zobrazí celkový počet hlasů
+- `?showTotal=yes`
+- When true, shows total vote count
 
 ### showForEntry
 
-- `?showForEntry=yep`
-- Akceptuje cokoliv nebo nic
-- Pokud něco je, tak zobrazí počet hlasů u jednotlivých her
+- `?showForEntry=yes`
+- When true, shows vote count for each entry
 
 ### useEntryPercentage
 
-- `?useEntryPercentage=yep`
-- Akceptuje cokoliv nebo nic
-- Pokud něco je, tak zobrazuje procenta počtu hlasů místo počtu hlasů
+- `?useEntryPercentage=yes`
+- When true, shows percentage instead of votes
 
 ### barRelativeTop
 
-- `?barRelativeTop=yep`
-- Akceptuje cokoliv nebo nic
-- Pokud něco je, tak je výplň řádku relativní k maximálnímu počtu hlasů místo ke všem hlasům
+- `?barRelativeTop=yes`
+- When true, the lines fill the width relative to the entry with max votes instead of all votes
 
 ---
 
@@ -109,41 +101,38 @@ Vše potřebné je dostupné ve složce `/build`
 
 ## StaticData
 
-- pro testovani se statickyma datama
+- Testing with static data
 
 ### totalVotes
 
 - `?totalVotes=5000`
-- Akceptuje cele cisla
-- Pocet vsech hlasu
+- Integers, number of total votes
 
 ### entryVotes
 
 - `?entryVotes=500`
-- Akceptuje cele cisla
-- nevim, vyzkousej si ruzne cisla
+- Integers
 
 ### limit
 
 - `?limit=10`
-- Akceptuje cele cisla
-- kolik radku her se zobrazi
+- Integers, limit of entries
 
 ## FajnyApi
 
-- napojuje se fajn api podle domluveneho formatu
+- Connects to the FajnyApi in predefined format
 
 ### apiUrl
 
 - `?apiUrl=http%3A%2F%2Flocalhost%3A8080`
-- url encoded url pro api
+- URL encoded URL for the API
 
 ### category
 
 - `?category=current`
-- kategorie ktera se prida do api url
+- Voting category passed to the API
 
 ### limit
 
 - `?limit=1`
-- cele cislo ktere se prida do api url
+- Limit on entries passed to the API
