@@ -10,10 +10,6 @@
 
 ## Local Development
 
-### Requirements
-
-- Funkční instalace NodeJS spolu s NPM
-
 ### Running
 
 ```bash
